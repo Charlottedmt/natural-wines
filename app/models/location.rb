@@ -1,3 +1,4 @@
 class Location < ApplicationRecord
-  has_many :stocks
+  belongs_to :stock
+  has_many :bottles, through: :stock
 end
