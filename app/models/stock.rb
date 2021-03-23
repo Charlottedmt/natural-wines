@@ -1,4 +1,4 @@
 class Stock < ApplicationRecord
-  belongs_to :location
-  belongs_to :bottle
+  has_many :locations
+  has_many :bottles
 end
