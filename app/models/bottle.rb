@@ -1,3 +1,4 @@
 class Bottle < ApplicationRecord
-  has_many :stocks
+  belongs_to :stock
+  has_many :locations, through: :stock
 end
