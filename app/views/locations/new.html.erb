@@ -1,0 +1,8 @@
+<div>
+  <%= simple_form_for(@location) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :category %>
+    <%= f.submit "Add location", class: "btn btn-secondary" %>
+  <% end %>
+</div>
