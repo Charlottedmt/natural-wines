@@ -2,14 +2,15 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    # @markers = @locations.geocoded.map do |location|
-    #   {
-    #     lat: location.latitude,
-    #     lng: location.longitude
-    #     infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
-    #   }
-    # end
+    @markers = @locations.geocoded.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+      }
+    end
   end
 
   def show
@@ -22,7 +23,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    if @location.save?
+    if @location.save
       redirect_to locations_path
     else
       render :new
