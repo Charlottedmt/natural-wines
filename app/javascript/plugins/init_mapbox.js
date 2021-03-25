@@ -31,7 +31,6 @@ const userCurrentPosition = (map, mapElement) => {
   navigator.geolocation.getCurrentPosition((location) => {
     console.log(location.coords.latitude);
     const current_position = JSON.parse(mapElement.dataset.current_position);
-    const popup = new mapboxgl.Popup().setHTML(current_position.infoWindow);
 
     // Create a HTML element for your custom marker
     const element = document.createElement('div');
@@ -44,7 +43,6 @@ const userCurrentPosition = (map, mapElement) => {
     // Pass the element as an argument to the new marker
     const user_position = new mapboxgl.Marker(element)
       .setLngLat([location.coords.longitude, location.coords.latitude])
-      .setPopup(popup)
       .addTo(map);
   });
 };
