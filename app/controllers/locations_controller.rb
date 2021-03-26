@@ -10,6 +10,10 @@ class LocationsController < ApplicationController
     #     infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
     #   }
     # end
+    @current_position =
+      {
+        image_url: helpers.asset_url('user_position.png')
+      }
   end
 
   def show
