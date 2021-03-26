@@ -8,9 +8,14 @@ class LocationsController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+        #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
+   
+    @current_position =
+      {
+        image_url: helpers.asset_url('user_position.png')
+      }
   end
 
   def show
