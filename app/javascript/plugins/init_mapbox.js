@@ -11,26 +11,25 @@ const buildMap = (mapElement) => {
   return map;
 };
 
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-//   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-// };
+const fitMapToMarkers = (map, markers) => {
+const bounds = new mapboxgl.LngLatBounds();
+markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+};
 
-// const addMarkersToMap = (map, markers) => {
-//   markers.forEach((marker) => {
-//     new mapboxgl.Marker()
-//       .setLngLat([marker.lng, marker.lat])
-//       .addTo(map);
-//   });
-// };
+const addMarkersToMap = (map, markers) => {
+  markers.forEach((marker) => {
+    new mapboxgl.Marker()
+      .setLngLat([marker.lng, marker.lat])
+      .addTo(map);
+  });
+};
 
 const userCurrentPosition = (map, mapElement) => {
   console.log(map);
   console.log(mapElement);
   navigator.geolocation.getCurrentPosition((location) => {
-    console.log(location.coords.latitude);
-    const current_position = JSON.parse(mapElement.dataset.current_position);
+  const current_position = JSON.parse(mapElement.dataset.current_position);
 
     // Create a HTML element for your custom marker
     const element = document.createElement('div');
@@ -49,11 +48,28 @@ const userCurrentPosition = (map, mapElement) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-    if (mapElement) { // only build a map if there's a div#map to inject into
-      const map = buildMap(mapElement);
-    // const markers = JSON.parse(mapElement.dataset.markers);
-    // addMarkersToMap(map, markers);
-    // fitMapToMarkers(map, markers);
+  if (mapElement) { // only build a map if there's a div#map to inject into
+    const map = buildMap(mapElement);
+    const markers = JSON.parse(mapElement.dataset.markers);
+    console.log(markers);
+    markers.forEach((marker) => {
+      // Create a HTML element for your custom marker
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const icon = document.createElement('div');
+      icon.className = 'marker';
+      icon.style.backgroundImage = `url('${marker.image_url}')`;
+      icon.style.backgroundSize = 'contain';
+      icon.style.width = '35px';
+      icon.style.height = '35px';
+      icon.style.backgroundRepeat = 'no-repeat';
+      new mapboxgl.Marker(icon)
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(map);
+    })
+    console.log(markers);
+    addMarkersToMap(map, markers);
+    fitMapToMarkers(map, markers);
     userCurrentPosition(map, mapElement);
   };
 
