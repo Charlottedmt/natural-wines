@@ -12,9 +12,14 @@
   <div class="locations-cards">
    <% @locations.each do |location|%>
     <div class="location-card">
-      <%= image_tag location.photo %>
+      <% if location.photo_url %>
+        <%= image_tag location.photo_url %>
+      <% elsif location.photo.attached? %>
+        <%= cl_image_tag(location.photo.key, crop: :thumb, gravity: :face)%>
+      <% else %>
+        <%= image_tag "http://loremflickr.com/200/200/wine" %>
+      <% end %>
       <%= location.name %>
-
     </div>
   <% end %>
   </div>
