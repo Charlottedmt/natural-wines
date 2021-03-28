@@ -2,14 +2,24 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
-
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+
     @markers = @locations.geocoded.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
-      }
+      if location.category == "Shop"
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          image_url: helpers.asset_url('store.png')
+          #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+        }
+      else
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          image_url: helpers.asset_url('restaurant.png')
+          #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+        }
+      end
     end
 
     @current_position =
