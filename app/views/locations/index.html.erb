@@ -12,7 +12,9 @@
   <div class="locations-cards">
    <% @locations.each do |location|%>
     <div class="location-card">
-      <%= location.name%>
+      <%= image_tag location.photo %>
+      <%= location.name %>
+
     </div>
   <% end %>
   </div>

@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
         #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
-   
+
     @current_position =
       {
         image_url: helpers.asset_url('user_position.png')
@@ -29,6 +29,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
+      raise
       redirect_to locations_path
     else
       render :new
@@ -51,6 +52,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:address, :name, :category)
+    params.require(:location).permit(:address, :name, :category, :photo)
   end
 end
