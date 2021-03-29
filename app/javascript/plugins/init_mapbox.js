@@ -68,7 +68,7 @@ const initMapbox = () => {
         .addTo(map);
     })
     console.log(markers);
-    addMarkersToMap(map, markers);
+    // addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     userCurrentPosition(map, mapElement);
   };
