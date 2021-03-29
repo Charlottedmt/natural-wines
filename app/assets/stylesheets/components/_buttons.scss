@@ -9,9 +9,17 @@
   width: 20%;
   text-align: center;
   margin: 12px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .new-button:hover {
   opacity: 1;
+  a{
+    text-decoration: none;
+    color: #8F131A;
+  }
 
 }

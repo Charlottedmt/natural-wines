@@ -6,18 +6,19 @@ class LocationsController < ApplicationController
 
     @markers = @locations.geocoded.map do |location|
       if location.category == "Shop"
+
         {
           lat: location.latitude,
           lng: location.longitude,
-          image_url: helpers.asset_url('store.png')
-          #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+          image_url: helpers.asset_url('store.png'),
+          infoWindow: render_to_string(partial: "info_window", locals: { location: location })
         }
       else
         {
           lat: location.latitude,
           lng: location.longitude,
-          image_url: helpers.asset_url('restaurant.png')
-          #infoWindow: render_to_string(partial: "info_window", locals: { location: location })
+          image_url: helpers.asset_url('restaurant.png'),
+          infoWindow: render_to_string(partial: "info_window", locals: { location: location })
         }
       end
     end
