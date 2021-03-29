@@ -17,13 +17,13 @@ markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
 map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-const addMarkersToMap = (map, markers) => {
-  markers.forEach((marker) => {
-    new mapboxgl.Marker()
-      .setLngLat([marker.lng, marker.lat])
-      .addTo(map);
-  });
-};
+// const addMarkersToMap = (map, markers) => {
+//   markers.forEach((marker) => {
+//     new mapboxgl.Marker()
+//       .setLngLat([marker.lng, marker.lat])
+//       .addTo(map);
+//   });
+// };
 
 const userCurrentPosition = (map, mapElement) => {
   console.log(map);
@@ -59,8 +59,8 @@ const initMapbox = () => {
       icon.className = 'marker';
       icon.style.backgroundImage = `url('${marker.image_url}')`;
       icon.style.backgroundSize = 'contain';
-      icon.style.width = '35px';
-      icon.style.height = '35px';
+      icon.style.width = '25px';
+      icon.style.height = '25px';
       icon.style.backgroundRepeat = 'no-repeat';
       new mapboxgl.Marker(icon)
         .setLngLat([marker.lng, marker.lat])

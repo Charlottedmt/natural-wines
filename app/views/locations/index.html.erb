@@ -7,12 +7,28 @@
   <div id="map"
         style="width: 100%; height: 300px;"
         data-markers="<%= @markers.to_json %>"
+        data-current_position="<%= @current_position.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %> ">
   </div>
   <div class="locations-cards">
    <% @locations.each do |location|%>
     <div class="location-card">
-      <%= location.name%>
+      <% if !location.photo_url.blank? %>
+        <%= link_to location_path(location) do %>
+        <%= image_tag location.photo_url %>
+        <% end %>
+      <% elsif location.photo.attached? %>
+        <%= link_to location_path(location) do %>
+        <%= cl_image_tag location.photo.key %>
+        <% end %>
+      <% else %>
+        <%= link_to location_path(location) do %>
+        <%= image_tag "http://loremflickr.com/200/200/wine" %>
+        <% end %>
+      <% end %>
+      <%= link_to location_path(location) do %>
+      <%= location.name %>
+      <% end %>
     </div>
   <% end %>
   </div>

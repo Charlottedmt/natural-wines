@@ -2,10 +2,11 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
-
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+
     @markers = @locations.geocoded.map do |location|
-     if location.category == "Shop"
+      if location.category == "Shop"
+
         {
           lat: location.latitude,
           lng: location.longitude,
@@ -61,6 +62,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:address, :name, :category)
+    params.require(:location).permit(:address, :name, :category, :photo_url, :photo)
   end
 end

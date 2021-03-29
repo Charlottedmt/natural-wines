@@ -3,6 +3,8 @@
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :category %>
+    <%= f.input :photo_url %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit "Add location", class: "btn btn-secondary" %>
   <% end %>
 </div>

@@ -1,0 +1,28 @@
+.locations-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 16px;
+  grid-gap: 32px;
+}
+
+.location-card {
+  overflow: hidden;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(240, 240, 240, .8);
+  transition: all .1s ease-in-out;
+    &:hover {
+     box-shadow: 0 0 30px rgba(0,0,0,.5);
+     transform: scale(1.02);
+   }
+   &.grow {
+     transition: all .2s ease-in-out;
+   }
+   height: 300px;
+}
+
+.location-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
