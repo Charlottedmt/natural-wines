@@ -1,3 +1,11 @@
 
-<h1> Hello </h1>
+ <% if !location.photo_url.blank? %>
+  <%= link_to location_path(location) do %>
+    <%= image_tag location.photo_url %>
+  <% end %>
+<% elsif location.photo.attached? %>
+  <%= link_to location_path(location) do %>
+    <%= cl_image_tag location.photo.key %>
+  <% end %>
+<% end %>
 
