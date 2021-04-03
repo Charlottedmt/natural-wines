@@ -37,3 +37,5 @@ CSV.foreach(filepath, csv_options) do |row|
   location.save!
   puts "Creating location #{location.id}..."
 end
+
+puts "Finished !"
