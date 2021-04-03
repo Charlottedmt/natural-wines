@@ -1,6 +1,5 @@
 class Location < ApplicationRecord
   has_many :stocks
-  has_many :bottles, through: :stock
   has_one_attached :photo
   # has_many :bottles, through: :stock
   geocoded_by :address
