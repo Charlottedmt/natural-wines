@@ -13,7 +13,7 @@ class BottlesController < ApplicationController
 
   def create
     @bottle = Bottle.new(bottle_params)
-    if @bottle.save?
+    if @bottle.save
       redirect_to bottles_path
     else
       render :new
@@ -36,7 +36,7 @@ class BottlesController < ApplicationController
   private
 
   def bottle_params
-    params.require(:bottle).permit(:address, :name, :category)
+    params.require(:bottle).permit(:address, :name, :category, :bottle)
   end
 
 end
