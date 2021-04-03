@@ -31,7 +31,7 @@ CSV.foreach(filepath, csv_options) do |row|
     name: row['Name'],
     address: row['Address'],
     category: row['Category'],
-    photo: row['Photo_url']
+    photo_url: row['Photo_url']
   )
   location.photo.attach(io: file, filename: photo_filename, content_type: photo_content_type)
   location.save!
