@@ -16,6 +16,10 @@
 .container {
   background-color: rgba(250, 250, 250, 0.5);
   height: 100%;
+  h1 {
+    font-family: 'Syne Mono', monospace;
+    text-align: center;
+  }
 }
 
 
@@ -33,7 +37,6 @@
   font-family: 'Syne Mono', monospace;
   margin-left: 0px;
   // padding-top: 20px;
-  padding-top: 26px;
   // font-size: 1.5rem;
   font-size: 1.7rem;
   line-height: 34px;
@@ -50,6 +53,7 @@ i {
   display: grid;
   width: 100%;
   justify-content: space-around;
+  margin-top: 64px;
 }
 .card-landing{
   display: flex;
@@ -63,20 +67,34 @@ i {
   text-align: center;
   margin-top: 8px;
 }
-.btn-landing{
+// .btn-landing{
+//   display: flex;
+//   color: white;
+//   background-color: white;
+//   border-radius: 50%;
+//   align-items: center;
+//   justify-content: center;
+//   align-self: center;
+//   box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
+// }
+.btn-landing {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 320px;
   display: flex;
-  color: white;
-  background-color: white;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  align-items: center;
   justify-content: center;
-  align-self: center;
-  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
-}
-.btn-landing i {
-  font-size: 2rem;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
 .btn-padding-left {
   padding-left: 8px;
