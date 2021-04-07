@@ -5,21 +5,11 @@
       <h4>Wine by nature</h4>
     </div>
     <div class="container-landing">
-      <div class="card-landing">
-        <div class="btn-landing">
-          <%= link_to new_bottle_path do %>
-            <i class="fas fa-utensils"></i><br>
-          <% end %>
-        </div>
-        <p>Save the bottles that I liked</p>
+      <div class="btn-landing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80)">
+        <%= link_to "Favorite bottles", new_bottle_path %>
       </div>
-      <div class="card-landing">
-        <div class="btn-landing btn-padding-left">
-          <%= link_to locations_path do %>
-           <i class="fas fa-mug-hot"></i><br>
-          <% end %>
-        </div>
-        <p>Find a place to buy or drink natural wines</p>
+      <div class="btn-landing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1556442281-77c90134c61f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80)">
+        <%= link_to "Natural wines in Tokyo", locations_path %>
       </div>
     </div>
   </div>
