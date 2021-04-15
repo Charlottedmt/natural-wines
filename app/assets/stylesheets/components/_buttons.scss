@@ -22,3 +22,10 @@
     color: #8F131A;
   }
 }
+
+@media (max-width: 600px) {
+  .new-button {
+    border-radius: 50%;
+    width: 28%;
+  };
+};

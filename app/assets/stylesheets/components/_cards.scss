@@ -21,7 +21,6 @@
     h3 {
       font-family: 'Syne Mono', monospace;
       font-size: 24px;
-
     }
     a {
       text-decoration: none;
@@ -45,3 +44,10 @@
   text-align: center;
   padding: 5px;
 }
+
+
+@media (max-width: 600px) {
+.locations-cards {
+    grid-template-columns: 1fr;
+  }
+};
