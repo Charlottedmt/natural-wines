@@ -17,3 +17,12 @@ input#query.form-control {
     width: fit-content;
     margin: 10px 0px;
 }
+
+@media (max-width: 600px) {
+.container-bottles {
+    display: grid;
+  }
+input#query.form-control {
+  width: auto;
+}
+};
