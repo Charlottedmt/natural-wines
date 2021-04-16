@@ -1,9 +1,21 @@
-<div class="container">
+<!-- <div class="container">
   <%= simple_form_for(@bottle) do |f| %>
     <%= f.input :name %>
     <%= f.submit "Add location", class: "btn btn-secondary" %>
-<input type="file" accept="image/*" capture>
+    <input type="file" accept="image/*" capture>
+  <% end %>
+</div> -->
+
+<div>
+  <%= simple_form_for(@bottle) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Add bottle", class: "btn btn-secondary" %>
   <% end %>
 </div>
+
+
 
 
