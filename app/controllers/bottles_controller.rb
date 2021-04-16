@@ -1,6 +1,10 @@
 class BottlesController < ApplicationController
   def index
-    @bottles = Bottle.all
+    if params[:description].present?
+      @bottles = Bottle.where(description: params[:description])
+    else
+      @bottles = Bottle.all
+    end
   end
 
   def show
@@ -12,6 +16,7 @@ class BottlesController < ApplicationController
   end
 
   def create
+    raise
     @bottle = Bottle.new(bottle_params)
     if @bottle.save
       redirect_to bottles_path

@@ -1,0 +1,19 @@
+.container-bottles{
+  display: flex;
+}
+
+.left-side {
+  width: 100%;
+  h3 {
+    font-family: 'Syne Mono', monospace;
+  }
+}
+
+.filters {
+  display: grid;
+}
+
+input#query.form-control {
+    width: fit-content;
+    margin: 10px 0px;
+}

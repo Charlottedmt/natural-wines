@@ -45,6 +45,14 @@
   padding: 5px;
 }
 
+.bottles-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 16px;
+  grid-gap: 32px;
+  margin: 32px;
+}
+
 
 @media (max-width: 600px) {
 .locations-cards {
