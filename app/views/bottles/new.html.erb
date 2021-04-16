@@ -6,23 +6,15 @@
   <% end %>
 </div> -->
 
-<%= simple_form_for (@bottle) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <img src="" alt="" class="benchmark_preview row justify-content-center" id="benchmark_preview">
-  <div class="form-inputs custom-file-upload">
+<div>
+  <%= simple_form_for(@bottle) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
     <%= f.input :photo, as: :file %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, 'use benchmark pic', :class => 'btn btn-primary' %>
-  </div>
-
-  <div class="home_link">
-    <%= link_to "home", root_path %>
-  </div>
-<% end %>
+    <%= f.submit "Add bottle", class: "btn btn-secondary" %>
+  <% end %>
+</div>
 
 
 
