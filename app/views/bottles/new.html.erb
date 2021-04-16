@@ -1,9 +1,29 @@
-<div class="container">
+<!-- <div class="container">
   <%= simple_form_for(@bottle) do |f| %>
     <%= f.input :name %>
     <%= f.submit "Add location", class: "btn btn-secondary" %>
-<input type="file" accept="image/*" capture>
+    <input type="file" accept="image/*" capture>
   <% end %>
-</div>
+</div> -->
+
+<%= simple_form_for (@bottle) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <img src="" alt="" class="benchmark_preview row justify-content-center" id="benchmark_preview">
+  <div class="form-inputs custom-file-upload">
+    <%= f.input :photo, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'use benchmark pic', :class => 'btn btn-primary' %>
+  </div>
+
+  <div class="home_link">
+    <%= link_to "home", root_path %>
+  </div>
+<% end %>
+
+
 
 
