@@ -16,7 +16,6 @@ class BottlesController < ApplicationController
   end
 
   def create
-    raise
     @bottle = Bottle.new(bottle_params)
     if @bottle.save
       redirect_to bottles_path
