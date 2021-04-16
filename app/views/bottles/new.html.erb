@@ -6,11 +6,11 @@
   <% end %>
 </div> -->
 
-<div>
+<div class="container">
   <%= simple_form_for(@bottle) do |f| %>
     <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price %>
+    <%= f.input :description, as: :radio_buttons, collection: ["Red","White", "Rosé", "Sparkling"], boolean_style: :inline %>
+    <%= f.input :price, label: "Price (¥) " %>
     <%= f.input :photo, as: :file %>
     <%= f.submit "Add bottle", class: "btn btn-secondary" %>
   <% end %>
