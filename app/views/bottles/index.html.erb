@@ -1,18 +1,24 @@
-<div class="container">
-  <div class="new-button">
-          <%= link_to "Add a favorite bottle", new_bottle_path, class: "button" %>
+<div class="container-bottles">
+  <div class="left-side filters">
   </div>
-  <div class="locations-cards">
-    <% @bottles.each do |bottle|%>
-      <div class="location-card">
-        <div class="location-card-photo">
-          <% if bottle.photo.attached? %>
-            <%= cl_image_tag bottle.photo.key %>
-          <% else %>
-            <%= image_tag "http://loremflickr.com/200/200/wine" %>
-          <% end %>
-        </div>
+  <div class="right-side">
+    <div class="right-btn d-flex flex-row-reverse">
+      <div class="new-button">
+              <%= link_to "Add a favorite bottle", new_bottle_path, class: "button" %>
       </div>
-    <% end %>
+    </div>
+    <div class="locations-cards">
+      <% @bottles.each do |bottle|%>
+        <div class="location-card">
+          <div class="location-card-photo">
+            <% if bottle.photo.attached? %>
+              <%= cl_image_tag bottle.photo.key %>
+            <% else %>
+              <%= image_tag "http://loremflickr.com/200/200/wine" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
