@@ -10,7 +10,6 @@
   <%= simple_form_for(@bottle) do |f| %>
     <%= f.input :name %>
     <%= f.input :description, as: :radio_buttons, collection: ["Red","White", "Rosé", "Sparkling"], boolean_style: :inline %>
-    <%= f.input :wine_maker %>
     <%= f.input :price, label: "Price (¥) " %>
     <%= f.input :photo, as: :file %>
     <%= f.submit "Add bottle", class: "btn btn-secondary" %>
