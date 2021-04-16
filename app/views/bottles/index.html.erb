@@ -9,7 +9,7 @@
         <h3> Filter your search </h3>
         <%= form_tag bottles_path, method: :get do %>
           <div class="input-group filters">
-            <%= select_tag :description, options_for_select(["Red","White", "Rosé", "Sparkling"]), input_html: { class: "nice-class" } %>
+            <%= select_tag :description, options_for_select([["Red",0],["White",1], ["Rosé",2], ["Sparkling",3]]), include_blank: "Type", input_html: { class: "nice-class" } %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
