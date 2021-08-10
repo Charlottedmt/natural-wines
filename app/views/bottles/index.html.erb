@@ -4,35 +4,41 @@
       <%= link_to "Add a favorite bottle", new_bottle_path, class: "button" %>
     </div>
   </div>
-  <div class="container-bottles">
-      <div class="left-side">
-        <h3> Filter your search </h3>
-        <%= form_tag bottles_path, method: :get do %>
-          <div class="input-group filters">
-            <%= select_tag :description, options_for_select(["Red","White","Rosé","Sparkling"]), include_blank: "Type", input_html: { class: "nice-class" } %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Name, Winemaker..."
-            %>
-            <%= submit_tag 'Filter' %>
-          </div>
-        <% end %>
-
-      </div>
-      <div class="right-side">
-        <div class="bottles-cards">
-          <% @bottles.each do |bottle|%>
-            <div class="location-card">
-              <div class="location-card-photo">
-                <% if bottle.photo.attached? %>
-                  <%= cl_image_tag bottle.photo.key %>
-                <% else %>
-                  <%= image_tag "http://loremflickr.com/200/200/wine" %>
-                <% end %>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-4">
+        <div class="container-bottles">
+          <div class="left-side">
+            <h3> Filter your search </h3>
+            <%= form_tag bottles_path, method: :get do %>
+              <div class="input-group filters">
+                <%= select_tag :description, options_for_select(["Red","White","Rosé","Sparkling"]), width: '15px',include_blank: "Type", input_html: { class: "nice-class" } %>
+                <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Name, Winemaker..."
+                %>
+                <%= submit_tag 'Filter' %>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="right-side">
+          <div class="bottles-cards">
+            <% @bottles.each do |bottle|%>
+              <div class="location-card">
+                <div class="location-card-photo">
+                  <% if bottle.photo.attached? %>
+                    <%= cl_image_tag bottle.photo.key %>
+                  <% else %>
+                    <%= image_tag "http://loremflickr.com/200/200/wine" %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

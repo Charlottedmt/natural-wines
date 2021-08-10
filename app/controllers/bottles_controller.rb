@@ -1,4 +1,6 @@
 class BottlesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     if params[:description].present?
       @bottles = Bottle.where(description: params[:description])
