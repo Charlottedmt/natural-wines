@@ -1,21 +1,36 @@
 // Specific CSS for your home-page
 .body {
-  background-position: center;
-  background-image: asset-url("bouchon.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: black;
-  // padding-bottom: 36px;
-  font-family: 'Syne Mono', monospace;
+  position: relative;
+  // background-position: center;
+  // background-image: asset-url("bouchon.jpg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // color: black;
+  // // padding-bottom: 36px;
+  // font-family: 'Syne Mono', monospace;
+}
+
+.background img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.container-locations {
+  position: relative;
 }
 
 .container {
   // background-color: rgba(242, 239, 239, 0.89);
   height: 100%;
+
   h1 {
     font-family: 'Syne Mono', monospace;
     text-align: center;
@@ -24,13 +39,10 @@
 
 .body h2 {
 
-  // font-size: 4.3em;
-  font-family: 'Syne Mono', monospace;
-  font-size: 4em;
-  // padding-top: 32px;
   padding-top: 26px;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, .4);
 }
+
 .body h4 {
   // margin-left: 28px;
   font-family: 'Syne Mono', monospace;
@@ -41,13 +53,16 @@
   line-height: 34px;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
 }
+
 i {
   // font-size: 5em;
 }
-.color-red{
+
+.color-red {
   color: red;
   text-decoration: underline;
 }
+
 .container-landing {
   display: grid;
   width: 100%;
@@ -68,14 +83,16 @@ i {
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
   a {
     text-decoration: none;
     color: white;
   }
 }
+
 .btn-padding-left {
   padding-left: 8px;
 }
