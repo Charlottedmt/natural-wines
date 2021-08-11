@@ -1,16 +1,43 @@
 <div class="body">
-  <div class="container">
-    <div>
-      <h2>Natural wines</h2>
-      <h4>Wine by nature</h4>
+  <div class="background"><%= image_tag "bouchon.jpg", alt: "Le Wagon", width: 200 %></div>
+  <div class="container container-locations">
+    <div class="" id="map" style="width: 100%; height: 300px;"
+        data-markers="<%= @markers.to_json %>"
+        data-current_position="<%= @current_position.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %> ">
     </div>
-    <div class="container-landing">
-      <div class="btn-landing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80)">
-        <%= link_to "Favorite bottles", bottles_path %>
-      </div>
-      <div class="btn-landing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1556442281-77c90134c61f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80)">
-        <%= link_to "Natural wines in Tokyo", locations_path %>
-      </div>
+    <div class="locations-cards">
+      <% @locations.each do |location|%>
+        <div class="location-card">
+          <div class="location-card-photo">
+            <% if !location.photo_url.blank? %>
+              <%= link_to location_path(location) do %>
+                <%= image_tag location.photo_url %>
+              <% end %>
+            <% elsif location.photo.attached? %>
+              <%= link_to location_path(location) do %>
+                <%= cl_image_tag location.photo.key %>
+              <% end %>
+            <% else %>
+              <%= link_to location_path(location) do %>
+                <%= image_tag "http://loremflickr.com/200/200/wine" %>
+              <% end %>
+            <% end %>
+           </div>
+           <div class="location-card-text">
+            <%= link_to location_path(location) do %>
+              <h3><%= location.name %></h3>
+            <% end %>
+           </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+<!--<div class="btn-landing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80)">
+  <%= link_to "Favorite bottles", bottles_path %>
+</div>
+<div class="btn-landing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1556442281-77c90134c61f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80)">
+  <%= link_to "Natural wines in Tokyo", locations_path %>
+</div>-->
